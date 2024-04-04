@@ -1,11 +1,18 @@
-const increment = document.querySelector(".increment");
-increment.addEventListener("click", () => {
-  const hearts = document.querySelector(".hearts");
-  hearts.textContent += "❤";
-});
+const incrementButtons = document.querySelectorAll(".increment");
 
-const decrement = document.querySelector(".decrement");
-decrement.addEventListener("click", () => {
-  const hearts = document.querySelector(".hearts");
+for (let button of incrementButtons) {
+  button.addEventListener("click", (e) => {
+    const hearts = e.target.parentNode.parentNode.querySelector(".hearts");
+    hearts.textContent += "❤";
+  // console.log("event.target:", event.target);
+});
+}
+
+const decrementButtons = document.querySelectorAll(".decrement");
+
+for (let button of decrementButtons)
+button.addEventListener("click", (e) => {
+  const hearts = e.target.parentNode.parentNode.querySelector(".hearts");
   hearts.textContent = hearts.textContent.slice(0, -1);
+  // console.log("event.target:", event.target);
 });
